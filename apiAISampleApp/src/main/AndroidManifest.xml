@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="ai.api.sample">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".AIApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="ai.api.sample.MainActivity"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ai.api.sample.AIButtonSampleActivity"
+            android:label="@string/title_activity_aibutton_sample"
+            android:parentActivityName="ai.api.sample.MainActivity">
+                <intent-filter>
+                    <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <action android:name="android.intent.action.SET_ALARM" />
+                    <action android:name="android.intent.action.SET_TIMER" />
+                </intent-filter>
+
+
+        </activity>
+
+        <activity
+            android:name=".AIServiceSampleActivity"
+            android:label="@string/title_activity_aiservice_sample"
+            android:parentActivityName="ai.api.sample.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.sample.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".AIDialogSampleActivity"
+            android:label="@string/title_activity_aidialog_sample"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.sample.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".AISettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.sample.MainActivity" />
+        </activity>
+            
+        <activity
+            android:name=".AIWidgetActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Base.Theme.AppCompat.Dialog">
+
+        </activity>
+
+        <receiver android:name=".AISampleAppWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ai_app_widget_info" />
+        </receiver>
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        <meta-data
+            android:name="com.google.android.gms.version"
+
+            android:value="@integer/google_play_services_version" />
+-->
+    </application>
+
+</manifest>
